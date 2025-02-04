@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.css">
+    <title>Project</title>
+    <link rel="stylesheet" href="https://docs.mbktechstudio.com/Assets/project.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link rel="icon" type="image/x-icon" href="https://mbktechstudio.com/Assets/Images/dgicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<style>
+    html,
+    body {
+        background-color: #0e2431;
+    }
+
+    .download-g {
+        display: block;
+    }
+
+    section .button {
+        margin: 5px 0;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    section .button button {
+        outline: none;
+        padding: 6px 22px;
+        border-radius: 2px;
+        font-size: 15px;
+        font-weight: 600;
+        background: #377a77;
+        color: #fff;
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+    }
+
+    section .button button img.download-icon {
+        margin-bottom: 4px;
+    }
+
+    section .button button small {
+        font-size: 12px;
+        color: #fff;
+        transition: all 0.4s ease;
+    }
+
+    section .button button:hover {
+        border-color: #377a77;
+        background-color: transparent;
+        color: #377a77;
+        transition: all 0.4s ease;
+    }
+
+    section .button button:hover small {
+        color: #377a77;
+    }
+
+    section .download-g .logo {
+        height: 100px;
+        width: 100px;
+        background-size: contain !important;
+        margin: 16px auto;
+        -ms-high-contrast-adjust: none;
+    }
+
+    .products {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+</style>
+
+<header>
+    <nav>
+        <div class="navbar">
+            <div class="logo">
+                <div class="image">
+                    <img src="https://mbktechstudio.com/Assets/Images/Icon/dg.svg" alt="" />
+                </div>
+                <div class="text">
+                    <a href="https://mbktechstudio.com/">MBK Tech Studio</a>
+                </div>
+            </div>
+            <ul class="menu">
+                <div class="media-icons-m" id="media-icons-m"></div>
+                <div class="cancel-btn">
+                    <i class="fas fa-times"></i>
+                </div>
+            </ul>
+            <div class="media-icons" id="media-icons"></div>
+        </div>
+        <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+</header>
+
+<body>
+    <div class="scroll-button">
+        <a href="#about"><i class="fas fa-arrow-up"></i></a>
+    </div>
+    <section class="about" id="about">
+        <div class="content">
+            <br><br>
+
+            <!--  <div class="title"><span>Download Simple Message Protocol</span></div> -->
+            <h1 style="color:#f0f8ff ;text-align: center;">Download MBK Tech Studio Portal App</h1>
+
+            <div class="products">
+
+                <div class="download-g">
+                    <img class="logo" src="https://code.visualstudio.com/assets/images/windows-logo.png">
+                    <div class="button">
+                        <button class="button" id="submit-button"
+                            onclick="OpenLink('https://portal.mbktechstudio.com/')">
+                            <img class="download-icon" src="https://code.visualstudio.com/assets/icons/download.svg"
+                                width="18px" height="18px" alt="Download VS Code">
+                            <span>Open In Browser</span>
+                            <small>Window 7/10/11</small>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="download-g">
+                    <img class="logo" src="https://code.visualstudio.com/assets/images/linux-logo.png">
+                    <div class="button">
+
+                        <button style="margin-left: 5px;" class="button" id="submit-button">
+                            <img class="download-icon" src="https://code.visualstudio.com/assets/icons/download.svg"
+                                width="18px" height="18px" alt="Download VS Code">
+                            <span>.apk</span>
+                            <small>Android +99.4%</small>
+                            <small id="last-update"></small>
+                            <script>
+                                fetch('https://api.github.com/repos/MBKTechStudio/Download-Portal/commits?path=Assets/portal_mbktechstudio.apk&page=1&per_page=1')
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        const lastUpdate = new Date(data[0].commit.committer.date).toLocaleDateString();
+                                        document.getElementById('last-update').textContent = `Last updated: ${lastUpdate}`;
+                                    })
+                                    .catch(error => console.error('Error fetching last update info:', error));
+                            </script>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="download-g">
+                    <img class="logo" src="https://code.visualstudio.com/assets/images/apple-logo-inverted.svg">
+                    <div class="button">
+                        <button class="button" id="submit-button">
+                            <img class="download-icon" src="https://code.visualstudio.com/assets/icons/download.svg"
+                                width="18px" height="18px" alt="Download VS Code">
+                            <span>Open In Browser</span>
+                            <small>MAC OS / IOS</small>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+
+        <div class="text">
+
+            <span> © <span id="year"></span> <a href="https://mbktechstudio.com/" target="_blank">MBK Tech Studio</a>.
+                All
+                Rights Reserved | <a href="https://privacy.mbktechstudio.com/" target="_blank">Terms &amp;
+                    Conditions</a> | <a href="https://mbktechstudio.com/FAQs" target="_blank">FAQs</a> | <a
+                    href="https://mbktechstudio.com/Support/" target="_blank">Support &amp; Contact</a></span>
+            <script>
+                document.getElementById('year').textContent = new Date().getFullYear();
+            </script>
+        </div>
+
+    </footer>
+    <script src="https://mbktechstudio.com/Assets/Scripts/header.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput-jquery.min.js"></script>
+    <script>
+        function OpenLink(link) {
+            window.open(link);
+        }
+        function DownloadLink(id) {
+            if (id === 'win-cli') {
+                console.log(id);
+                link = 'https://github.com/MIbnEKhalid/SMP-Unity/releases/download/Release/Windows.SMP.zip';
+                window.open(link);
+            } else if (id === 'win-gui') {
+                console.log(id);
+                link = 'https://github.com/MIbnEKhalid/SMP-Unity/releases/download/Release/Windows.SMP.zip';
+                window.open(link);
+            } else if (id === 'linux-and') {
+                console.log(id);
+                link = 'Assets/portal_mbktechstudio.apk';
+                window.open(link);
+            } else if (id === 'linux-deb') {
+                console.log(id);
+                link = 'https://github.com/MIbnEKhalid/SMP-Unity/releases/download/Release/Linux.SMP.zip';
+                window.open(link);
+            } else if (id === 'linux-rpm') {
+                console.log(id);
+                link = 'https://github.com/MIbnEKhalid/SMP-Unity/releases/download/Release/Linux.SMP.zip';
+                window.open(link);
+            } else if (id === 'mac-uni') {
+                console.log(id);
+                link = 'https://github.com/MIbnEKhalid/SMP-Unity/releases/download/Release/MacOS.SMP.zip';
+                window.open(link);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
